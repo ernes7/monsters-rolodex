@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
-import { render } from '@testing-library/react';
+
+import { List } from './components/list/list.component';
 
 class App extends Component 
 {
@@ -12,33 +12,24 @@ class App extends Component
 
     this.state = 
     {
-      monsters:
-      [
-        {
-          id: "1",
-          name: "Pikachu"
-        },
-        {
-          id: "2",
-          name: "Charizard"
-        },
-        {
-          id: "3",
-          name: "Raichu"
-        }
-      ]
+      monsters:[]
     };
   }
+
+  componentDidMount()
+  {
+    fetch('https://swapi.dev/api/people')
+      .then(response => response.json())
+      .then(people => this.setState({ monsters: people.results}));
+  }
+
 
   render() 
   {
     return (
       <div className="App">
-        <header className="App-header">
-        </header>
-        <div>
-          {this.state.monsters.map(monster => ( <p key={monster.id}> {monster.name} </p> ))}
-        </div>
+        <List monsters={this.state.monsters}/>
+  
       </div>
     );
   }
