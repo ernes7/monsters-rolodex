@@ -1,9 +1,10 @@
 import React from 'react';
 import './list.styles.css';
+import { Card } from '../card/card.component';
 
-export const List = (props) => {
-    return <div className='list'>
+export const List = (props) => (
+    <div className='list'>
     {props.monsters.map(monster => ( 
-        <p key={monster.id}> {monster.name} </p> ))}
-    </div>;
-}; 
+        <Card key={monster.id} monster={monster}/> ))}
+    </div>
+); 

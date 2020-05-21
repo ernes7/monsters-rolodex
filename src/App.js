@@ -18,9 +18,9 @@ class App extends Component
 
   componentDidMount()
   {
-    fetch('https://swapi.dev/api/people')
+    fetch('https://pokeapi.co/api/v2/pokemon')
       .then(response => response.json())
-      .then(people => this.setState({ monsters: people.results}));
+      .then(pokemon => this.setState({ monsters: pokemon.results}));
   }
 
 
@@ -28,6 +28,7 @@ class App extends Component
   {
     return (
       <div className="App">
+      
         <List monsters={this.state.monsters}/>
   
       </div>
