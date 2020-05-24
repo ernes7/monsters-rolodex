@@ -18,9 +18,10 @@ class App extends Component
 
   componentDidMount()
   {
-    fetch('https://pokeapi.co/api/v2/pokemon')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
       .then(response => response.json())
-      .then(pokemon => this.setState({ monsters: pokemon.results}));
+      .then(pokemon => this.setState({ monsters: pokemon.results}))
+    
   }
 
 
@@ -28,7 +29,7 @@ class App extends Component
   {
     return (
       <div className="App">
-      
+        <input type='search' />
         <List monsters={this.state.monsters}/>
   
       </div>

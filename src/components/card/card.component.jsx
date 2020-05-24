@@ -2,9 +2,14 @@ import React from 'react';
 
 import './card.styles.css';
 
+
 export const Card = (props) => (
     <div className='card'>
-        <p>{props.monster.name}{props.monster.height}</p>
+        <img 
+            alt='Pokemon'
+            src={`https://pokeres.bastionbot.org/images/pokemon/${counter}.png`}
+        />
+        <h2>{props.monster.name}</h2>
     </div>
     
 );
